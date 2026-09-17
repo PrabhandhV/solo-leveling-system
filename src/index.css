@@ -1,0 +1,48 @@
+:root {
+  --bg: #0B0D10;
+  --surface: #15191F;
+  --surface-2: #1D2229;
+  --surface-3: #252B33;
+  --line: #343B45;
+  --text: #F4F6FA;
+  --muted: #9BA3AE;
+  --purple: #8C3DFF;
+  --violet: #B04CFF;
+  --blue: #2E7CFF;
+  --cyan: #19D9FF;
+  --green: #35D07F;
+  --yellow: #F6C84C;
+  --orange: #FF8A2A;
+  --red: #FF4D67;
+  --pink: #F63DAE;
+
+  font: 18px/145% system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* font-weight: 800; */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.card-label {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}

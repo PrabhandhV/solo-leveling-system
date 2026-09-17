@@ -1,0 +1,179 @@
+.habits-page {
+  min-height: 100svh;
+  background: var(--bg);
+  padding: 28px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.habits-heading {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(90deg, var(--purple), var(--violet), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.habits-subheading { margin: 4px 0 0; font-size: 0.8rem; color: var(--muted); }
+
+.habits-main { display: flex; gap: 24px; align-items: stretch; flex: 1; min-height: 0; }
+
+.heatmaps-panel {
+  flex: 2;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.track-picker { display: flex; flex-direction: column; gap: 8px; }
+.picker-label { margin: 0; font-size: 0.78rem; color: var(--muted); }
+.picker-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.picker-btn {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--surface-2); border: 1px solid var(--line);
+  color: var(--text); padding: 6px 12px; border-radius: 8px;
+  font-size: 0.78rem; cursor: pointer;
+}
+.picker-btn:hover { border-color: var(--purple); }
+.picker-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.heatmap-card {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heatmap-header { display: flex; align-items: center; gap: 8px; }
+.hm-dot { width: 10px; height: 10px; border-radius: 50%; }
+.hm-name { margin: 0; font-size: 0.85rem; font-weight: 600; color: var(--text); }
+
+.hm-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: 0.6rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.hm-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+
+.hm-cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+
+.hm-locked { background: transparent; }
+.hm-future { background: var(--surface); opacity: 0.5; }
+.hm-past { background: var(--surface); }
+.hm-today { background: var(--surface); border-style: dashed; }
+.hm-complete { border: none; }
+.hm-missed { background: transparent; }
+
+.hm-done-btn {
+  margin-top: auto;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+.hm-done-btn:hover { border-color: var(--purple); color: var(--text); }
+
+.goals-panel {
+  flex: 1.2;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.goals-header { display: flex; justify-content: space-between; align-items: center; }
+
+.new-habit-btn {
+  background: var(--purple); border: none; color: var(--text);
+  padding: 6px 14px; border-radius: 8px; font-size: 0.78rem; cursor: pointer;
+}
+
+.goal-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.goal-card {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.goal-top { display: flex; align-items: center; gap: 7px; }
+.goal-dot { width: 8px; height: 8px; border-radius: 50%; }
+.goal-name { margin: 0; font-size: 0.82rem; font-weight: 600; color: var(--text); }
+.goal-remaining { margin: 0; font-size: 0.7rem; color: var(--muted); }
+
+.goal-stakes { margin: 0; display: flex; gap: 10px; font-size: 0.7rem; }
+.win-value { color: var(--green); }
+.lose-value { color: var(--red); }
+
+.goal-actions { display: flex; gap: 6px; margin-top: 4px; }
+
+.goal-complete, .goal-missed {
+  flex: 1; padding: 5px; border-radius: 6px; font-size: 0.72rem; cursor: pointer;
+}
+.goal-complete { background: transparent; border: 1px solid var(--green); color: var(--green); }
+.goal-complete:hover:not(:disabled) { background: rgba(53, 208, 127, 0.15); }
+.goal-missed { background: transparent; border: 1px solid var(--red); color: var(--red); }
+.goal-missed:hover:not(:disabled) { background: rgba(255, 77, 103, 0.15); }
+.goal-complete:disabled, .goal-missed:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.marked-note { margin: 0; font-size: 0.68rem; color: var(--muted); font-style: italic; }
+
+.milestone-card {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--yellow);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.milestone-label { font-size: 0.8rem; color: var(--muted); }
+.milestone-value { font-size: 0.95rem; font-weight: 700; color: var(--yellow); }

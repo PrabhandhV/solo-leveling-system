@@ -1,0 +1,122 @@
+.new-reward-modal {
+  position: relative;
+  width: 480px;
+  max-width: 92vw;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 36px 40px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.nr-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.nr-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.nr-title {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text);
+  padding: 0;
+}
+
+.nr-title::placeholder { color: var(--line); }
+
+.nr-rows { display: flex; flex-direction: column; gap: 4px; }
+
+.nr-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 7px 0;
+}
+
+.nr-label {
+  flex: 0 0 150px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.nr-static { font-size: 0.85rem; color: var(--text); }
+
+.nr-num {
+  width: 90px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.nr-num:focus { border-color: var(--purple); }
+
+.nr-pill {
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.pill-available { background: rgba(53, 208, 127, 0.15); color: var(--green); border: 1px solid var(--green); }
+.pill-unavailable { background: rgba(255, 77, 103, 0.15); color: var(--red); border: 1px solid var(--red); }
+.pill-gold { background: rgba(246, 200, 76, 0.15); color: var(--yellow); border: 1px solid var(--yellow); }
+.pill-neutral { background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+
+.nr-error { margin: 0; font-size: 0.78rem; color: var(--red); }
+
+.nr-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.nr-cancel {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 9px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nr-save {
+  background: var(--purple);
+  border: none;
+  color: var(--text);
+  padding: 9px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}

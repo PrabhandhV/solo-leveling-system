@@ -1,0 +1,39 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.dashboard-column {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-heading {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(90deg, var(--purple), var(--violet), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heading-left { text-align: left; }
+.heading-center { text-align: center; }
+.heading-right { text-align: right; }
+
+.dashboard-column .player-profile,
+.dashboard-column .statistics-panel,
+.dashboard-column .system-panel {
+  flex: 1;
+}

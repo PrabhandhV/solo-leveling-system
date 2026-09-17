@@ -1,0 +1,117 @@
+.system-log-page {
+  min-height: 100svh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+.nav-heading {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(90deg, var(--purple), var(--violet), var(--blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-subheading {
+  margin: 0 0 24px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 260px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.module-accent-bar {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.module-name { margin: 6px 0 0; font-size: 1.2rem; color: var(--text); }
+
+.module-description {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  flex: 1;
+}
+
+.module-open-btn {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.module-open-btn:hover:not(:disabled) { background: var(--accent); }
+
+.module-open-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: var(--line);
+}
+
+.nav-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.nav-back-btn, .nav-settings-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.nav-back-btn {
+  background: var(--purple);
+  border: none;
+  color: var(--text);
+}
+
+.nav-settings-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.nav-settings-btn:disabled { opacity: 0.5; cursor: not-allowed; }

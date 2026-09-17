@@ -1,0 +1,28 @@
+.page-nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.page-nav-btn {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 8px 22px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.page-nav-btn:hover:not(:disabled) {
+  border-color: var(--purple);
+  background: var(--surface-2);
+}
+
+.page-nav-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.nav-lock { font-size: 0.7rem; }

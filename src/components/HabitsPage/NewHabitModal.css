@@ -1,0 +1,46 @@
+.new-habit-modal {
+  position: relative;
+  width: 440px;
+  max-width: 92vw;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 36px 40px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.nh-close { position: absolute; top: 14px; right: 16px; background: transparent; border: none; color: var(--muted); cursor: pointer; }
+
+.nh-title {
+  background: transparent; border: none; outline: none;
+  font-size: 1.8rem; font-weight: 800; line-height: 1.2;
+  color: var(--text); padding: 0;
+}
+.nh-title::placeholder { color: var(--line); }
+
+.nh-rows { display: flex; flex-direction: column; gap: 4px; }
+.nh-row { display: flex; align-items: center; gap: 16px; padding: 7px 0; }
+.nh-label { flex: 0 0 160px; font-size: 0.82rem; color: var(--muted); }
+
+.nh-num {
+  width: 90px; background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 6px; color: var(--text); padding: 6px 10px; font-size: 0.82rem; outline: none;
+}
+.nh-num:focus { border-color: var(--purple); }
+
+.nh-colors { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.nh-swatch {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid transparent; cursor: pointer; padding: 0;
+}
+.swatch-active { border-color: var(--text); }
+
+.nh-error { margin: 0; font-size: 0.78rem; color: var(--red); }
+
+.nh-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; border-top: 1px solid var(--line); padding-top: 16px; }
+.nh-cancel { background: transparent; border: 1px solid var(--line); color: var(--text); padding: 9px 18px; border-radius: 8px; cursor: pointer; }
+.nh-save { background: var(--purple); border: none; color: var(--text); padding: 9px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; }

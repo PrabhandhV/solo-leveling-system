@@ -1,0 +1,127 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.edit-modal {
+  width: 360px;
+  max-width: 90vw;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edit-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-modal-title { margin: 0; font-size: 1rem; font-weight: 600; color: var(--text); }
+
+.edit-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.edit-modal-subtitle { margin: 0 0 12px; font-size: 0.75rem; color: var(--muted); }
+
+.photo-row { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+
+.photo-preview {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-upload { flex: 1; }
+
+.upload-box {
+  display: block;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.75rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.upload-box:hover { border-color: var(--violet); color: var(--text); }
+.upload-box input { display: none; }
+
+.upload-hint { margin: 6px 0 0; font-size: 0.65rem; color: var(--muted); }
+
+.field-label {
+  margin: 10px 0 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+.label-cyan { color: var(--cyan); }
+
+.name-input {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  color: var(--text);
+  outline: none;
+}
+
+.name-input:focus { border-color: var(--purple); }
+
+.locked-field {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.edit-error { margin: 8px 0 0; font-size: 0.75rem; color: var(--red); }
+
+.edit-modal-buttons { display: flex; gap: 10px; margin-top: 16px; }
+
+.btn-cancel, .btn-save {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-cancel { background: transparent; border: 1px solid var(--line); color: var(--text); }
+.btn-save { background: var(--purple); border: none; color: var(--text); font-weight: 600; }

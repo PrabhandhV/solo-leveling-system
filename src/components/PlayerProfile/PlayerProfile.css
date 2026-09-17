@@ -1,0 +1,80 @@
+.player-profile {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.profile-photo {
+  height: 180px;
+  border-radius: 10px;
+  background: linear-gradient(160deg, var(--violet) 0%, var(--purple) 45%, #2a1145 100%);
+}
+
+.profile-photo { overflow: hidden; }
+
+.profile-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-name { margin: 0; font-size: 1.4rem; letter-spacing: 1px; color: var(--text); }
+.profile-tagline { margin: 0; font-size: 0.85rem; color: var(--muted); }
+
+.profile-rank {
+  display: inline-block;
+  width: fit-content;
+  padding: 4px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.profile-progress { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.progress-heading { margin: 0; font-size: 0.8rem; color: var(--muted); }
+
+.progress-track {
+  height: 8px;
+  background: var(--surface2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--pink));
+  transition: width 0.5s ease;
+}
+
+.progress-footer { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); }
+
+.profile-divider { height: 1px; background: var(--line); margin: 4px 0; }
+
+.profile-stats-row { display: flex; justify-content: space-between; gap: 10px; }
+.profile-stat-label { margin: 0; font-size: 0.7rem; color: var(--muted); }
+.profile-stat-value { margin: 2px 0 0; font-size: 0.95rem; font-weight: 700; }
+
+.xp-required { color: var(--pink); }
+.xp-earned { color: var(--violet); }
+.gold-earned { color: var(--yellow); }
+
+.profile-buttons { display: flex; gap: 10px; margin-top: 4px; }
+
+.btn-secondary, .btn-primary {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-secondary { background: transparent; border: 1px solid var(--line); color: var(--text); }
+.btn-primary { background: var(--purple); border: none; color: var(--text); }
