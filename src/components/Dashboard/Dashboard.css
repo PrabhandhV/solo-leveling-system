@@ -1,6 +1,6 @@
 .dashboard {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 24px;
   padding: 40px;
   width: 100%;
@@ -9,12 +9,26 @@
   box-sizing: border-box;
 }
 
-.dashboard-column {
+.dashboard-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.dashboard-top .dashboard-column {
   flex: 1;
   min-width: 320px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.dashboard-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .section-heading {
@@ -32,8 +46,12 @@
 .heading-center { text-align: center; }
 .heading-right { text-align: right; }
 
-.dashboard-column .player-profile,
-.dashboard-column .statistics-panel,
-.dashboard-column .system-panel {
+.dashboard-top .player-profile,
+.dashboard-top .system-panel {
   flex: 1;
+}
+
+.dashboard-bottom .statistics-panel {
+  width: 100%;
+  box-sizing: border-box;
 }

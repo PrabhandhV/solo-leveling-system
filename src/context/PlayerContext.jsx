@@ -93,6 +93,11 @@ export function PlayerProvider({ children }) {
     savePlayer({ ...player, lastLoginDate: date });
   }
 
+  function updateProfile({ name, photo }) {
+    if (!player) return;
+    savePlayer({ ...player, name, photo: photo ?? player.photo });
+  }
+
   async function addQuest(quest) {
     const created = await api.post("/quests", quest);
     setQuests((prev) => [...prev, created]);
@@ -185,7 +190,7 @@ export function PlayerProvider({ children }) {
     habits: token ? habits : [],
     loading: token ? loading : false,
     error,
-    awardXp, loseXp, setStreak, setLastLoginDate,
+    awardXp, loseXp, setStreak, setLastLoginDate, updateProfile,
     addQuest, completeQuest, removeQuest,
     addReward, claimReward,
     addHabit, markHabit, setHabitTracked,

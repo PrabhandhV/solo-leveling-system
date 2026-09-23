@@ -11,10 +11,21 @@
 .stats-subtitle { margin: 0 0 6px; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
 .stats-list-heading { margin: 10px 0 6px; font-size: 0.8rem; color: var(--muted); }
 
+.activity-tooltip {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+}
+.activity-tooltip p { margin: 0; }
+.activity-tooltip p:first-child { color: var(--muted); margin-bottom: 2px; }
+
 .stat-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 16px;
+  margin-top: 8px;
 }
 
 .stat-item {
