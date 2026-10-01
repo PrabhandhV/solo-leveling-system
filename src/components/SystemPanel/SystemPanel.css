@@ -1,25 +1,52 @@
 .system-panel {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   color: var(--text);
+  box-shadow: var(--shadow-panel);
+  overflow: hidden;
+}
+
+.system-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--blue), transparent);
+  background-size: 200% 100%;
+  animation: scanBar 4s linear infinite;
+}
+
+@keyframes scanBar {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .system-header { display: flex; align-items: center; gap: 8px; }
 
 .system-icon {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: var(--blue);
+  box-shadow: 0 0 8px 1px color-mix(in srgb, var(--blue) 80%, transparent);
   flex-shrink: 0;
+  animation: pulseDot 2s ease-in-out infinite;
 }
 
-.system-title { margin: 0; font-size: 1.1rem; color: var(--text); }
+@keyframes pulseDot {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.system-title { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; color: var(--text); }
 .system-divider { height: 1px; background: var(--line); margin: 8px 0; }
 
 .section-label {
@@ -27,33 +54,33 @@
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .label-cyan { color: var(--cyan); }
 .label-yellow { color: var(--yellow); }
 .label-red { color: var(--red); }
 .label-purple { color: var(--purple); }
+.label-orange { color: var(--orange); }
+.label-green { color: var(--green); }
 
 .system-row { display: flex; justify-content: space-between; font-size: 0.85rem; }
 .system-label { color: var(--muted); }
-.system-value { font-weight: 600; }
+.system-value { font-weight: 600; font-variant-numeric: tabular-nums; }
 .gift { color: var(--violet); }
 .needed { color: var(--pink); }
 
 .system-alert {
-  background: rgba(255, 77, 103, 0.1);
+  background: color-mix(in srgb, var(--red) 10%, transparent);
   border: 1px solid var(--red);
   color: var(--red);
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
   font-size: 0.8rem;
 }
 
-.label-orange { color: var(--orange); }
-
 .alert-penalty {
-  background: rgba(255, 138, 42, 0.1);
+  background: color-mix(in srgb, var(--orange) 10%, transparent);
   border-color: var(--orange);
   color: var(--orange);
 }
@@ -63,7 +90,7 @@
 
 .progress-track {
   height: 8px;
-  background: var(--surface2);
+  background: var(--surface-3);
   border-radius: 4px;
   overflow: hidden;
   margin-top: 4px;
@@ -72,6 +99,8 @@
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--blue), var(--pink));
+  box-shadow: 0 0 10px -1px color-mix(in srgb, var(--pink) 70%, transparent);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .system-subheading { margin: 10px 0 2px; font-size: 0.8rem; color: var(--muted); }
@@ -96,31 +125,37 @@
   flex-shrink: 0;
 }
 
+.remaining-empty { color: var(--muted); font-style: italic; list-style: none; }
+
 .system-log-btn {
   margin-top: 14px;
   background: transparent;
   border: 1px solid var(--purple);
   color: var(--text);
-  padding: 8px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 9px;
   cursor: pointer;
-} 
+  font-weight: 600;
+  transition: background 0.18s ease, box-shadow 0.18s ease;
+}
+.system-log-btn:hover { background: color-mix(in srgb, var(--purple) 15%, transparent); box-shadow: 0 0 16px -4px color-mix(in srgb, var(--purple) 60%, transparent); }
 
 .login-btn {
   margin-top: 14px;
   background: linear-gradient(90deg, var(--purple), var(--blue));
   border: none;
-  color: var(--text);
-  padding: 10px;
-  border-radius: 8px;
+  color: #fff;
+  padding: 11px;
+  border-radius: 9px;
   cursor: pointer;
   font-weight: 600;
+  transition: box-shadow 0.18s ease, transform 0.15s ease;
 }
-
-.label-green { color: var(--green); }
+.login-btn:hover { box-shadow: 0 0 18px -3px color-mix(in srgb, var(--blue) 70%, transparent); }
+.login-btn:active { transform: scale(0.98); }
 
 .alert-success {
-  background: rgba(53, 208, 127, 0.1);
+  background: color-mix(in srgb, var(--green) 10%, transparent);
   border-color: var(--green);
   color: var(--green);
 }

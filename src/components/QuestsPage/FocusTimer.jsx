@@ -41,6 +41,11 @@ export default function FocusTimer() {
   const minutes = String(Math.floor(secondsLeft / 60)).padStart(2, "0");
   const seconds = String(secondsLeft % 60).padStart(2, "0");
 
+  const radius = 95;
+  const circumference = 2 * Math.PI * radius;
+  const fraction = secondsLeft / MODES[mode].seconds;
+  const dashoffset = circumference * (1 - fraction);
+
   return (
     <div className="focus-timer">
       <div className="timer-modes">
@@ -55,7 +60,24 @@ export default function FocusTimer() {
         ))}
       </div>
 
-      <p className="timer-display">{minutes}:{seconds}</p>
+      <div className="timer-ring">
+        <svg width="210" height="210" viewBox="0 0 210 210">
+          <defs>
+            <linearGradient id="timerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="var(--purple)" />
+              <stop offset="100%" stopColor="var(--blue)" />
+            </linearGradient>
+          </defs>
+          <circle className="timer-ring-track" cx="105" cy="105" r={radius} />
+          <circle
+            className="timer-ring-progress"
+            cx="105" cy="105" r={radius}
+            strokeDasharray={circumference}
+            strokeDashoffset={dashoffset}
+          />
+        </svg>
+        <p className="timer-display">{minutes}:{seconds}</p>
+      </div>
 
       <div className="timer-controls">
         <button className="timer-start" onClick={() => setIsRunning(!isRunning)}>

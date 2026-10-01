@@ -1,11 +1,19 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--scrim);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  animation: overlayIn 0.18s ease both;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .edit-modal {
@@ -13,11 +21,18 @@
   max-width: 90vw;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  box-shadow: var(--shadow-panel);
+  animation: modalIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .edit-modal-header {
@@ -74,7 +89,7 @@
   transition: border-color 0.2s;
 }
 
-.upload-box:hover { border-color: var(--violet); color: var(--text); }
+.upload-box:hover { border-color: var(--violet); color: var(--text); background: color-mix(in srgb, var(--violet) 8%, transparent); }
 .upload-box input { display: none; }
 
 .upload-hint { margin: 6px 0 0; font-size: 0.65rem; color: var(--muted); }
@@ -100,7 +115,7 @@
   outline: none;
 }
 
-.name-input:focus { border-color: var(--purple); }
+.name-input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px color-mix(in srgb, var(--purple) 18%, transparent); }
 
 .locked-field {
   background: var(--surface-2);
@@ -123,5 +138,7 @@
   cursor: pointer;
 }
 
-.btn-cancel { background: transparent; border: 1px solid var(--line); color: var(--text); }
-.btn-save { background: var(--purple); border: none; color: var(--text); font-weight: 600; }
+.btn-cancel { background: transparent; border: 1px solid var(--line); color: var(--text); transition: border-color 0.18s ease; }
+.btn-cancel:hover { border-color: var(--muted); }
+.btn-save { background: var(--purple); border: none; color: #fff; font-weight: 600; transition: box-shadow 0.18s ease; }
+.btn-save:hover { box-shadow: 0 0 16px -4px color-mix(in srgb, var(--purple) 70%, transparent); }

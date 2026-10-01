@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './HabitsPage.css'
-import PageNav from '../PageNav/PageNav'
 import NewHabitModal from './NewHabitModal'
 import HabitHeatmap from './HabitHeatmap'
 import { getTodayString, daysBetween } from '../../utils/streakTracker'
@@ -24,8 +23,6 @@ export default function HabitsPage() {
         <h1 className="habits-heading">Habits</h1>
         <p className="habits-subheading">Track consistency, streaks, milestones and consequences.</p>
       </div>
-
-      <PageNav current="habits" />
 
       <div className="habits-main">
         <div className="heatmaps-panel">

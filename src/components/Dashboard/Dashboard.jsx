@@ -32,6 +32,7 @@ export default function Dashboard() {
     updateProfile({ name: legacyName || "Sung Jin-Woo", photo: legacyPhoto || null });
     localStorage.removeItem("playerName");
     localStorage.removeItem("playerPhoto");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [player.name]);
 
   const [isLoggedInToday, setIsLoggedInToday] = useState(

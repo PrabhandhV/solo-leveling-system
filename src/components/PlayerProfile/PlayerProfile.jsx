@@ -18,9 +18,13 @@ export default function PlayerProfile({
 
   return (
     <div className="player-profile">
+      <span className="profile-bracket bracket-tl" />
+      <span className="profile-bracket bracket-br" />
+
       <p className="card-label">Player Profile</p>
       <div className="profile-photo">
         {photo && <img src={photo} alt="Player avatar" className="profile-photo-img" />}
+        <span className="profile-level-badge">LV {level}</span>
       </div>
 
       <h2 className="profile-name">{name.toUpperCase()}</h2>

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './QuestsPage.css'
 import FocusTimer from './FocusTimer'
-import PageNav from '../PageNav/PageNav'
 import NewQuestModal from './NewQuestModal'
 import NewRewardModal from './NewRewardModal'
 import { usePlayer } from '../../context/PlayerContext'
@@ -20,8 +19,6 @@ export default function QuestsPage() {
           <p className="quests-subheading">Build the day. Complete the mission. Claim the reward.</p>
         </div>
       </div>
-
-      <PageNav current="quests" />
 
       <div className="quests-main">
         <div className="quests-left">

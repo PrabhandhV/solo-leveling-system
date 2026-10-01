@@ -4,12 +4,14 @@
   max-width: 92vw;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 36px 40px 26px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   box-sizing: border-box;
+  box-shadow: var(--shadow-panel);
+  animation: modalIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .nr-close {
@@ -27,20 +29,22 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--red);
+  background: linear-gradient(135deg, var(--yellow), var(--orange));
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  color: var(--text);
+  color: #fff;
+  box-shadow: 0 0 20px -4px color-mix(in srgb, var(--yellow) 70%, transparent);
 }
 
 .nr-title {
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--text);
   padding: 0;
@@ -76,7 +80,7 @@
   outline: none;
 }
 
-.nr-num:focus { border-color: var(--purple); }
+.nr-num:focus { border-color: var(--purple); box-shadow: 0 0 0 3px color-mix(in srgb, var(--purple) 18%, transparent); }
 
 .nr-pill {
   padding: 3px 10px;
@@ -107,16 +111,20 @@
   border: 1px solid var(--line);
   color: var(--text);
   padding: 9px 18px;
-  border-radius: 8px;
+  border-radius: 9px;
   cursor: pointer;
+  transition: border-color 0.18s ease;
 }
+.nr-cancel:hover { border-color: var(--muted); }
 
 .nr-save {
   background: var(--purple);
   border: none;
-  color: var(--text);
+  color: #fff;
   padding: 9px 18px;
-  border-radius: 8px;
+  border-radius: 9px;
   cursor: pointer;
   font-weight: 600;
+  transition: box-shadow 0.18s ease;
 }
+.nr-save:hover { box-shadow: 0 0 16px -4px color-mix(in srgb, var(--purple) 70%, transparent); }

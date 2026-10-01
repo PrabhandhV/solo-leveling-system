@@ -1,7 +1,7 @@
 .habits-page {
   min-height: 100svh;
   background: var(--bg);
-  padding: 28px 40px;
+  padding: 32px 40px 56px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -13,8 +13,8 @@
 
 .habits-heading {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 1.9rem;
+  font-weight: 700;
   line-height: 1.2;
   background: linear-gradient(90deg, var(--purple), var(--violet), var(--blue));
   -webkit-background-clip: text;
@@ -22,7 +22,7 @@
   color: transparent;
 }
 
-.habits-subheading { margin: 4px 0 0; font-size: 0.8rem; color: var(--muted); }
+.habits-subheading { margin: 4px 0 0; font-size: 0.82rem; color: var(--muted); }
 
 .habits-main { display: flex; gap: 24px; align-items: stretch; flex: 1; min-height: 0; }
 
@@ -30,11 +30,12 @@
   flex: 2;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 20px 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  box-shadow: var(--shadow-panel);
 }
 
 .track-picker { display: flex; flex-direction: column; gap: 8px; }
@@ -46,6 +47,7 @@
   background: var(--surface-2); border: 1px solid var(--line);
   color: var(--text); padding: 6px 12px; border-radius: 8px;
   font-size: 0.78rem; cursor: pointer;
+  transition: border-color 0.18s ease;
 }
 .picker-btn:hover { border-color: var(--purple); }
 .picker-dot { width: 8px; height: 8px; border-radius: 50%; }
@@ -59,12 +61,14 @@
 .heatmap-card {
   background: var(--surface-2);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 14px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  transition: border-color 0.18s ease;
 }
+.heatmap-card:hover { border-color: var(--line); }
 
 .heatmap-header { display: flex; align-items: center; gap: 8px; }
 .hm-dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -86,13 +90,15 @@
   border-radius: 4px;
   border: 1px solid transparent;
   box-sizing: border-box;
+  transition: transform 0.12s ease;
 }
+.hm-cell:hover { transform: scale(1.15); }
 
 .hm-locked { background: transparent; }
-.hm-future { background: var(--surface); opacity: 0.5; }
-.hm-past { background: var(--surface); }
-.hm-today { background: var(--surface); border-style: dashed; }
-.hm-complete { border: none; }
+.hm-future { background: var(--surface-3); opacity: 0.5; }
+.hm-past { background: var(--surface-3); }
+.hm-today { background: var(--surface-3); border-style: dashed; }
+.hm-complete { border: none; box-shadow: 0 0 6px -1px currentColor; }
 .hm-missed { background: transparent; }
 
 .hm-done-btn {
@@ -100,10 +106,11 @@
   background: transparent;
   border: 1px solid var(--line);
   color: var(--muted);
-  padding: 5px;
-  border-radius: 6px;
+  padding: 6px;
+  border-radius: 7px;
   font-size: 0.72rem;
   cursor: pointer;
+  transition: border-color 0.18s ease, color 0.18s ease;
 }
 .hm-done-btn:hover { border-color: var(--purple); color: var(--text); }
 
@@ -111,19 +118,22 @@
   flex: 1.2;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 20px 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: var(--shadow-panel);
 }
 
 .goals-header { display: flex; justify-content: space-between; align-items: center; }
 
 .new-habit-btn {
-  background: var(--purple); border: none; color: var(--text);
-  padding: 6px 14px; border-radius: 8px; font-size: 0.78rem; cursor: pointer;
+  background: var(--purple); border: none; color: #fff;
+  padding: 7px 14px; border-radius: 8px; font-size: 0.78rem; font-weight: 600; cursor: pointer;
+  transition: box-shadow 0.18s ease;
 }
+.new-habit-btn:hover { box-shadow: 0 0 16px -4px color-mix(in srgb, var(--purple) 70%, transparent); }
 
 .goal-list {
   display: grid;
@@ -135,12 +145,14 @@
 .goal-card {
   background: var(--surface-2);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 11px;
   padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  transition: border-color 0.18s ease;
 }
+.goal-card:hover { border-color: var(--line); }
 
 .goal-top { display: flex; align-items: center; gap: 7px; }
 .goal-dot { width: 8px; height: 8px; border-radius: 50%; }
@@ -154,12 +166,13 @@
 .goal-actions { display: flex; gap: 6px; margin-top: 4px; }
 
 .goal-complete, .goal-missed {
-  flex: 1; padding: 5px; border-radius: 6px; font-size: 0.72rem; cursor: pointer;
+  flex: 1; padding: 6px; border-radius: 7px; font-size: 0.72rem; font-weight: 600; cursor: pointer;
+  transition: background 0.18s ease;
 }
 .goal-complete { background: transparent; border: 1px solid var(--green); color: var(--green); }
-.goal-complete:hover:not(:disabled) { background: rgba(53, 208, 127, 0.15); }
+.goal-complete:hover:not(:disabled) { background: color-mix(in srgb, var(--green) 15%, transparent); }
 .goal-missed { background: transparent; border: 1px solid var(--red); color: var(--red); }
-.goal-missed:hover:not(:disabled) { background: rgba(255, 77, 103, 0.15); }
+.goal-missed:hover:not(:disabled) { background: color-mix(in srgb, var(--red) 15%, transparent); }
 .goal-complete:disabled, .goal-missed:disabled { opacity: 0.35; cursor: not-allowed; }
 
 .marked-note { margin: 0; font-size: 0.68rem; color: var(--muted); font-style: italic; }
@@ -171,9 +184,11 @@
   align-items: center;
   background: var(--surface-2);
   border: 1px solid var(--yellow);
-  border-radius: 10px;
+  border-radius: 11px;
   padding: 12px 16px;
 }
 
 .milestone-label { font-size: 0.8rem; color: var(--muted); }
-.milestone-value { font-size: 0.95rem; font-weight: 700; color: var(--yellow); }
+.milestone-value { font-size: 0.95rem; font-weight: 700; color: var(--yellow); font-variant-numeric: tabular-nums; }
+
+.empty-note { color: var(--muted); font-size: 0.8rem; font-style: italic; }

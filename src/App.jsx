@@ -9,6 +9,7 @@ import QuestsPage from './components/QuestsPage/QuestsPage'
 import HabitsPage from './components/HabitsPage/HabitsPage'
 import { useAuth } from './context/AuthContext'
 import AuthPage from './components/Auth/AuthPage'
+import AppHeader from './components/AppHeader/AppHeader'
 
 function App() {
   const { isLoggedIn } = useAuth();
@@ -34,12 +35,15 @@ function App() {
           <p className="status-hint">Is the API running? Try: npm run server</p>
         </div>
       ) : (
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/system-log" element={<SystemLog />} />
-          <Route path="/quests" element={<QuestsPage />} />
-          <Route path="/habits" element={<HabitsPage />} />
-        </Routes>
+        <>
+          <AppHeader />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/system-log" element={<SystemLog />} />
+            <Route path="/quests" element={<QuestsPage />} />
+            <Route path="/habits" element={<HabitsPage />} />
+          </Routes>
+        </>
       )}
     </>
   );

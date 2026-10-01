@@ -1,20 +1,44 @@
-const tokens = {
-  bg: "#0B0D10",
-  surface: "#15191F",
-  surface2: "#1D2229",
-  surface3: "#252B33",
-  line: "#343B45",
-  text: "#F4F6FA",
-  muted: "#9BA3AE",
-  purple: "#8C3DFF",
-  violet: "#B04CFF",
-  blue: "#2E7CFF",
-  cyan: "#19D9FF",
-  green: "#35D07F",
-  yellow: "#F6C84C",
-  orange: "#FF8A2A",
-  red: "#FF4D67",
-  pink: "#F63DAE",
+const palettes = {
+  midnight: {
+    bg: "#05060D",
+    surface: "#0E1118",
+    surface2: "#151926",
+    surface3: "#1D2233",
+    line: "#262C3D",
+    text: "#EEF0F7",
+    muted: "#868DA3",
+    purple: "#8C3DFF",
+    violet: "#B14EFF",
+    blue: "#3D7FFF",
+    cyan: "#22E0FF",
+    green: "#33D189",
+    yellow: "#F7C948",
+    orange: "#FF8A3D",
+    red: "#FF5577",
+    pink: "#F74FC4",
+  },
+  daybreak: {
+    bg: "#EEF1F9",
+    surface: "#FFFFFF",
+    surface2: "#F4F6FC",
+    surface3: "#E8EBF5",
+    line: "#D7DBEA",
+    text: "#11131F",
+    muted: "#5B6178",
+    purple: "#7C3AED",
+    violet: "#9D3FE0",
+    blue: "#2563EB",
+    cyan: "#0891B2",
+    green: "#0F9D63",
+    yellow: "#B9830A",
+    orange: "#D9641A",
+    red: "#DC2B4E",
+    pink: "#C62B9E",
+  },
 };
 
-export default tokens;
+export function getTokens(theme) {
+  return palettes[theme] || palettes.midnight;
+}
+
+export default palettes.midnight;

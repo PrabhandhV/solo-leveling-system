@@ -5,15 +5,18 @@ import App from './App.jsx'
 import {BrowserRouter} from 'react-router-dom'
 import { PlayerProvider } from './context/PlayerContext.jsx'
 import { AuthProvider } from './context/AuthContext'
+import { ThemeProvider } from './context/ThemeContext'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <PlayerProvider>
-          <App />
-        </PlayerProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <PlayerProvider>
+            <App />
+          </PlayerProvider>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   </StrictMode>,
 )

@@ -6,12 +6,19 @@
   overflow-y: auto;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 40px 44px 28px;
   display: flex;
   flex-direction: column;
   gap: 18px;
   box-sizing: border-box;
+  box-shadow: var(--shadow-panel);
+  animation: modalIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .nq-close {
@@ -29,8 +36,9 @@
   background: transparent;
   border: none;
   outline: none;
-  font-size: 2rem;
-  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--text);
   padding: 0;
@@ -69,7 +77,7 @@
   outline: none;
 }
 
-.nq-row input:focus, .nq-select:focus { border-color: var(--purple); }
+.nq-row input:focus, .nq-select:focus { border-color: var(--purple); box-shadow: 0 0 0 3px color-mix(in srgb, var(--purple) 18%, transparent); }
 
 .nq-num { width: 90px; }
 .nq-text { width: 160px; }
@@ -90,16 +98,20 @@
   border: 1px solid var(--line);
   color: var(--text);
   padding: 9px 18px;
-  border-radius: 8px;
+  border-radius: 9px;
   cursor: pointer;
+  transition: border-color 0.18s ease;
 }
+.nq-cancel:hover { border-color: var(--muted); }
 
 .nq-save {
   background: var(--purple);
   border: none;
-  color: var(--text);
+  color: #fff;
   padding: 9px 18px;
-  border-radius: 8px;
+  border-radius: 9px;
   cursor: pointer;
   font-weight: 600;
+  transition: box-shadow 0.18s ease;
 }
+.nq-save:hover { box-shadow: 0 0 16px -4px color-mix(in srgb, var(--purple) 70%, transparent); }

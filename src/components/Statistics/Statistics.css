@@ -1,46 +1,110 @@
 .statistics-panel {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  box-shadow: var(--shadow-panel);
 }
 
-.stats-subtitle { margin: 0 0 6px; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-.stats-list-heading { margin: 10px 0 6px; font-size: 0.8rem; color: var(--muted); }
+.activity-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stats-subtitle { margin: 2px 0 0; font-size: 0.78rem; color: var(--muted); }
+
+.activity-legend { display: flex; gap: 14px; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--muted); }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.activity-chart-wrap { position: relative; }
+
+.activity-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.activity-empty-title {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.activity-empty-hint {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  max-width: 260px;
+}
 
 .activity-tooltip {
   background: var(--surface-2);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 8px 12px;
+  border-radius: 10px;
+  padding: 10px 14px;
   font-size: 0.8rem;
+  box-shadow: var(--shadow-panel);
 }
-.activity-tooltip p { margin: 0; }
-.activity-tooltip p:first-child { color: var(--muted); margin-bottom: 2px; }
+.activity-tooltip p { margin: 3px 0; display: flex; align-items: center; gap: 6px; }
+.tooltip-date { color: var(--muted) !important; margin-bottom: 4px !important; font-size: 0.72rem; }
+.tooltip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.tooltip-dot-quests { background: var(--purple); }
+.tooltip-dot-xp { background: var(--violet); }
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px 16px;
-  margin-top: 8px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 16px;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
 }
 
 .stat-item {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  flex-direction: column;
+  gap: 2px;
   font-size: 0.85rem;
 }
 
-.stat-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
+.stat-item::before {
+  content: "";
+  display: none;
 }
 
-.stat-name { color: var(--muted); margin-right: auto; }
-.stat-value { font-weight: 700; color: var(--text); }
+.stat-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+.stat-name { color: var(--muted); font-size: 0.72rem; }
+.stat-value {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}

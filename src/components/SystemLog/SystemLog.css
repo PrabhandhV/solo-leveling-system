@@ -1,6 +1,7 @@
 .system-log-page {
   min-height: 100svh;
   background: var(--bg);
+  background-image: radial-gradient(ellipse 800px 560px at 50% 0%, color-mix(in srgb, var(--purple) 14%, transparent), transparent 65%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,8 +13,9 @@
 
 .nav-heading {
   margin: 0;
-  font-size: 2.2rem;
-  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.1rem;
+  font-weight: 700;
   line-height: 1.2;
   background: linear-gradient(90deg, var(--purple), var(--violet), var(--blue));
   -webkit-background-clip: text;
@@ -25,8 +27,7 @@
   margin: 0 0 24px;
   font-size: 0.8rem;
   color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .module-grid {
@@ -38,15 +39,17 @@
 }
 
 .module-card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-height: 260px;
-  transition: transform 0.2s, border-color 0.2s;
+  box-shadow: var(--shadow-panel);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .module-card:hover {
@@ -55,13 +58,14 @@
 }
 
 .module-accent-bar {
-  width: 40px;
+  width: 36px;
   height: 4px;
   border-radius: 2px;
   background: var(--accent);
+  box-shadow: 0 0 10px -1px var(--accent);
 }
 
-.module-name { margin: 6px 0 0; font-size: 1.2rem; color: var(--text); }
+.module-name { margin: 6px 0 0; font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; color: var(--text); }
 
 .module-description {
   margin: 0;
@@ -72,16 +76,17 @@
 
 .module-open-btn {
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 9px;
   border: 1px solid var(--accent);
   background: transparent;
   color: var(--text);
   font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.module-open-btn:hover:not(:disabled) { background: var(--accent); }
+.module-open-btn:hover:not(:disabled) { background: var(--accent); color: var(--bg); }
 
 .module-open-btn:disabled {
   opacity: 0.35;
@@ -97,16 +102,19 @@
 
 .nav-back-btn, .nav-settings-btn {
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 9px;
   font-size: 0.85rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .nav-back-btn {
-  background: var(--purple);
+  background: linear-gradient(90deg, var(--purple), var(--violet));
   border: none;
-  color: var(--text);
+  color: #fff;
+  transition: box-shadow 0.18s ease;
 }
+.nav-back-btn:hover { box-shadow: 0 0 18px -4px color-mix(in srgb, var(--violet) 70%, transparent); }
 
 .nav-settings-btn {
   background: transparent;

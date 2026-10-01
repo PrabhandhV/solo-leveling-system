@@ -1,20 +1,32 @@
 .player-profile {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  box-shadow: var(--shadow-panel);
 }
 
+.profile-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid color-mix(in srgb, var(--violet) 50%, transparent);
+  pointer-events: none;
+}
+.bracket-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; border-radius: 16px 0 0 0; }
+.bracket-br { bottom: -1px; right: -1px; border-left: none; border-top: none; border-radius: 0 0 16px 0; }
+
 .profile-photo {
+  position: relative;
   height: 180px;
   border-radius: 10px;
   background: linear-gradient(160deg, var(--violet) 0%, var(--purple) 45%, #2a1145 100%);
+  overflow: hidden;
 }
-
-.profile-photo { overflow: hidden; }
 
 .profile-photo-img {
   width: 100%;
@@ -23,7 +35,30 @@
   display: block;
 }
 
-.profile-name { margin: 0; font-size: 1.4rem; letter-spacing: 1px; color: var(--text); }
+.profile-level-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: color-mix(in srgb, var(--bg) 60%, transparent);
+  backdrop-filter: blur(6px);
+  border: 1px solid color-mix(in srgb, var(--violet) 60%, transparent);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.profile-name {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  color: var(--text);
+}
 .profile-tagline { margin: 0; font-size: 0.85rem; color: var(--muted); }
 
 .profile-rank {
@@ -42,25 +77,38 @@
 .progress-heading { margin: 0; font-size: 0.8rem; color: var(--muted); }
 
 .progress-track {
-  height: 8px;
-  background: var(--surface2);
-  border-radius: 4px;
+  height: 9px;
+  background: var(--surface-3);
+  border-radius: 5px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--blue), var(--pink));
-  transition: width 0.5s ease;
+  box-shadow: 0 0 10px -1px color-mix(in srgb, var(--pink) 70%, transparent);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.progress-footer { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--muted); }
+.progress-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
 
 .profile-divider { height: 1px; background: var(--line); margin: 4px 0; }
 
 .profile-stats-row { display: flex; justify-content: space-between; gap: 10px; }
 .profile-stat-label { margin: 0; font-size: 0.7rem; color: var(--muted); }
-.profile-stat-value { margin: 2px 0 0; font-size: 0.95rem; font-weight: 700; }
+.profile-stat-value {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Space Grotesk', sans-serif;
+}
 
 .xp-required { color: var(--pink); }
 .xp-earned { color: var(--violet); }
@@ -70,11 +118,25 @@
 
 .btn-secondary, .btn-primary {
   flex: 1;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 9px;
+  border-radius: 9px;
   font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-.btn-secondary { background: transparent; border: 1px solid var(--line); color: var(--text); }
-.btn-primary { background: var(--purple); border: none; color: var(--text); }
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+.btn-secondary:hover { border-color: var(--violet); color: var(--violet); }
+
+.btn-primary {
+  background: var(--purple);
+  border: none;
+  color: #fff;
+}
+.btn-primary:hover { box-shadow: 0 0 18px -4px color-mix(in srgb, var(--purple) 70%, transparent); }
+.btn-secondary:active, .btn-primary:active { transform: scale(0.97); }
