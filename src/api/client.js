@@ -9,7 +9,7 @@ async function request(path, options = {}) {
 
   const response = await fetch(`${BASE_URL}${path}`, { ...options, headers });
 
-  if (response.status === 401) {
+  if (response.status === 401 && token) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     window.location.reload();
